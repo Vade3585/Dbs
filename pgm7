@@ -1,0 +1,173 @@
+SQL> create table student(usn varchar2(10) primary key, name varchar2(20) not null, dob date, branch
+varchar2(10) not null, mark1 number(4)not null, mark2 number(4) not null, mark3 number(4) not null,
+total number(4), gpa number(4,2));
+
+SQL> desc student;
+
+SQL> insert into student(usn, name,dob, branch,mark1, mark2, mark3,
+total,gpa)values('SC202201','Sanjana','24-Aug-2004','BCA', 85,96,97, null,null);
+
+SQL> insert into student values(&usn, &name, &dob, &branch, &mark1, &mark2, &mark3, &total, &gpa);
+Enter value for usn: 'SCAC202201'
+Enter value for name: 'Ayesha'
+Enter value for dob: '10-oct-2004'
+Enter value for branch: 'BCOM'
+Enter value for mark1: 75
+Enter value for mark2: 85
+Enter value for mark3: 65
+Enter value for total: null
+Enter value for gpa: null
+old 1: insert into student values(&usn, &name, &dob, &branch, &mark1, &mark2, &mark3, &total,
+&gpa)
+new 1: insert into student values('SCAC202201', 'Ayesha', '10-oct-2004', 'BCOM', 75, 85, 65, null, null)
+
+row created
+
+SQL> /
+Enter value for usn: 'SCAB202201'
+Enter value for name: 'Nikhil'
+Enter value for dob: '11-Nov-2004'
+Enter value for branch: 'BCA'
+Enter value for mark1: 75
+Enter value for mark2: 85
+Enter value for mark3: 83
+Enter value for total: null
+Enter value for gpa: null
+old 1: insert into student values(&usn, &name, &dob, &branch, &mark1, &mark2, &mark3, &total,
+&gpa)
+new 1: insert into student values('SCAB202201', 'Nikhil', '11-Nov-2004', 'BCA', 75, 85, 83, null, null)
+
+row created
+
+SQL> /
+Enter value for usn: 'SCA202202'
+Enter value for name: 'Diya'
+Enter value for dob: '01-Dec-2004'
+52
+Enter value for branch: 'BCA'
+Enter value for mark1: 84
+Enter value for mark2: 56
+Enter value for mark3: 63
+Enter value for total: null
+Enter value for gpa: null
+old 1: insert into student values(&usn, &name, &dob, &branch, &mark1, &mark2, &mark3, &total,
+&gpa)
+new 1: insert into student values('SCA202202', 'Diya', '01-Dec-2004', 'BCA', 84, 56, 63, null, null)
+
+row created
+
+SQL> /
+Enter value for usn: 'SCA202203'
+Enter value for name: 'Adarsh'
+Enter value for dob: '01-Jan-2005'
+Enter value for branch: 'BCA'
+Enter value for mark1: 68
+Enter value for mark2: 72
+Enter value for mark3: 78
+Enter value for total: null
+Enter value for gpa: null
+old 1: insert into student values(&usn, &name, &dob, &branch, &mark1, &mark2, &mark3, &total,
+&gpa)
+new 1: insert into student values('SCA202203', 'Adarsh', '01-Jan-2005', 'BCA', 68, 72, 78, null, null)
+
+row created
+
+SQL> select*from student;
+
+SQL> commit;Commit complete.
+SQL> insert into student values(&usn, &name, &dob, &branch, &mark1, &mark2, &mark3, &total, &gpa);
+SQL> /
+Enter value for usn: 'SCAC202203'
+Enter value for name: 'Sahana'
+Enter value for dob: '15-Jan-2005'
+Enter value for branch: 'BCOM'
+Enter value for mark1: 45
+Enter value for mark2: 65
+Enter value for mark3: 68
+Enter value for total: null
+Enter value for gpa: null
+old 1: insert into student values(&usn, &name, &dob, &branch, &mark1, &mark2, &mark3, &total,
+&gpa)
+new 1: insert into student values('SCAC202203', 'Sahana', '15-Jan-2005', 'BCOM', 45, 65, 68, null, null)
+
+1 row created.
+
+SQL> /
+Enter value for usn: 'SCAC202204'
+Enter value for name: 'Yohan'
+Enter value for dob: '15-Feb-2004'
+Enter value for branch: 'BCOM'
+Enter value for mark1: 55
+Enter value for mark2: 76
+Enter value for mark3: 78
+Enter value for total: null
+Enter value for gpa: null
+old 1: insert into student values(&usn, &name, &dob, &branch, &mark1, &mark2, &mark3, &total,
+&gpa)
+new 1: insert into student values('SCAC202204', 'Yohan', '15-Feb-2004', 'BCOM', 55, 76, 78, null, null)
+
+1 row created.
+SQL> /
+54
+Enter value for usn: 'SCAC202205'
+Enter value for name: 'Sara'
+Enter value for dob: '5-May-1997'
+Enter value for branch: 'BCOM'
+Enter value for mark1: 99
+Enter value for mark2: 87
+Enter value for mark3: 79
+Enter value for total: null
+Enter value for gpa: null
+old 1: insert into student values(&usn, &name, &dob, &branch, &mark1, &mark2, &mark3, &total,
+&gpa)
+new 1: insert into student values('SCAC202205', 'Sara', '5-May-1997', 'BCOM', 99, 87, 79, null, null)
+1 row created.
+SQL> commit;
+Commit complete.
+SQL> delete student where usn='SCAC202205'
+ 2
+SQL> delete student where usn='SCAC202205';
+1 row deleted.
+SQL> commit;
+Commit complete.
+SQL> savepoint s1;
+Savepoint created.
+SQL> /
+Enter value for usn: 'SCAB202204'
+Enter value for name: 'Keerthi'
+Enter value for dob: '15-Mar-2004'
+Enter value for branch: 'BBA'
+Enter value for mark1: 68
+Enter value for mark2: 77
+Enter value for mark3: 74
+Enter value for total: null
+Enter value for gpa: null
+old 1: insert into student values(&usn, &name, &dob, &branch, &mark1, &mark2, &mark3, &total,
+&gpa)
+new 1: insert into student values('SCAB202204', 'Keerthi', '15-Mar-2004', 'BBA', 68, 77, 74, null, null)
+55
+1 row created.
+SQL> /
+Enter value for usn: 'SCAB202205'
+Enter value for name: 'Rakshitha'
+Enter value for dob: '14-Jan-2004'
+Enter value for branch: 'BBA'
+Enter value for mark1: 68
+Enter value for mark2: 85
+Enter value for mark3: 90
+Enter value for total: null
+Enter value for gpa: null
+old 1: insert into student values(&usn, &name, &dob, &branch, &mark1, &mark2, &mark3, &total,
+&gpa)
+new 1: insert into student values('SCAB202205', 'Rakshitha', '14-Jan-2004', 'BBA', 68, 85, 90, null, null)
+1 row created.
+SQL> rollback;
+Rollback complete.
+SQL> commit;
+Commit complete.
+SQL> select*from student;
+
+7 rows selected.
+SQL> update student set total=mark1+mark2+mark3;
+7 rows updated.
+SQL> select*from student;
