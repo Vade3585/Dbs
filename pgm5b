@@ -1,0 +1,14 @@
+create table student(usn varchar2(10)primary key,name varchar2(20)not null,dob date,branch varchar2(10)not null,mark1 number(4)not null,mark2 number(4)not null,mark3 number(4)not null,total number(4),gpa number(4,2));
+desc student;
+
+insert into student(usn,name,dob,branch,mark1,mark2,mark3,total,gpa)values('sca202201','sanjana','24-aug2004','bca',85,96,97,null,null);
+insert into student(usn,name,dob,branch,mark1,mark2,mark3,total,gpa)values('scac202201','anirudh','10-oct2004','bcom',75,85,65,null,null);
+insert into student(usn,name,dob,branch,mark1,mark2,mark3,total,gpa)values('scab202201','akash','11-nov2004','bca',75,85,83,null,null);
+insert into student(usn,name,dob,branch,mark1,mark2,mark3,total,gpa)values('sca202202','tandra','01-dec2004','bca',84,56,63,null,null);
+insert into student(usn,name,dob,branch,mark1,mark2,mark3,total,gpa)values('sca202203','anusha','01-jan2005','bca',68,72,78,null,null);
+select*from student;
+
+update student set gpa=((100*total)/300)/10;
+select*from student;
+
+select usn,name,branch,dob from student where dob like'%-%-04';
