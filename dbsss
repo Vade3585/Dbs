@@ -1,0 +1,24 @@
+
+//Connect to MongoDB (if using the MongoDB shell)
+•use companyDB;
+•// CREATE: Insert multiple documents into the "employees" collection
+• db.employees.insertMany([
+•{ EmpID: 1, Name: "Athi", Department: "HR", Salary: 50000,
+•Address: { City: "Bangalore", Country: "India" } },
+•{ EmpID: 2, Name: "Babu", Department: "IT", Salary: 60000,
+•Address: { City: "Mumbai", Country: "India" } },
+•{ EmpID: 3, Name: "Charlie", Department: "Finance", Salary: 55000, Address: { City: "Delhi", Country: "India" } },
+•{ EmpID: 4, Name: "David", Department: "Marketing", Salary: 70000, Address: { City: "Chennai", Country: "India" } },
+•{ EmpID: 5, Name: “Kavi", Department: "Sales", Salary: 65000, Address: { City: "Kolkata", Country: "India" } }
+•]);
+Loading…
+ 
+// READ: Retrieve all documents from the "employees" collection db.employees.find().pretty();
+// READ: Retrieve employees in the "IT" department db.employees.find({ Department: "IT" }).pretty();
+// UPDATE: Increase salary by 10% for employees in the "Finance" department
+db.employees.updateMany( { Department: "Finance" },
+{ $mul: { Salary: 1.10 } }
+// Multiply Salary by 1.10 (10% increment) );
+ 
+•// UPDATE: Change the city of "Alice" to "Hyderabad" db.employees.updateOne(
+•{ Name: “athi" },
